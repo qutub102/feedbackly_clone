@@ -1,6 +1,6 @@
 # feedbackly_clone with Django
 # Heroku Deployment link
-
+http://prod-feedbackly.herokuapp.com/home
 # Database use mongodb
 
-http://prod-feedbackly.herokuapp.com/home
+
