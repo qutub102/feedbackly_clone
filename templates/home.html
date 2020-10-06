@@ -1,0 +1,132 @@
+{% extends 'base.html' %} {% block nav %}
+<a class="navbar-brand" href="/home">Feedbackly</a>
+<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+  <li class="nav-item active">
+    <a class="nav-link" href="/register"
+      >Register <span class="sr-only">(current)</span></a
+    >
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/login">Login</a>
+  </li>
+  {% endblock nav %} {% block body %}
+  <div
+    style="
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: lightblue;
+      padding: 10px 0px;
+      border-radius: 5px;
+      box-shadow: 0px 1px 6px 0.5px rgb(244, 133, 222);
+    "
+  >
+    <h1 style="text-align: center; margin-top: 70px">
+      Turn your customer feedback into growth
+    </h1>
+    <p style="margin: 33px 60px">
+      Create surveys and collect feedback on any touchpoint online or offline,
+      and analyze your entire customer journey in one place. Know where and why
+      your customers churn.
+    </p>
+    <a href="/register" class="btn btn-primary">Start for free</a>
+  </div>
+  {% load static%}
+  <div
+    style="
+      margin: 10px 0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    "
+  >
+    <h1 style="text-align: center">How to use feedbackly</h1>
+    <p><b>Login First</b></p>
+    <p><b>Add Credit First: 5 Credit for Rs.50 only</b></p>
+    <img
+      src="{%  static '/img/index.jpg' %}"
+      alt=""
+      style="
+        height: 250px;
+        width: 300px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        box-shadow: 0px 1px 6px 0.5px gray;
+      "
+    />
+    <p style="margin-top: 10px; text-align: center">
+      <b
+        >After Adding Credit Create Survey on clicking on createsurvey option on
+        navbar</b
+      >
+    </p>
+    <p><b>1 Survey for 1 Credit only</b></p>
+    <img
+      src="{%  static '/img/form.jpg' %}"
+      alt=""
+      style="
+        height: 300px;
+        width: 300px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        box-shadow: 0px 1px 6px 0.5px gray;
+      "
+    />
+    <p style="margin-top: 10px; text-align: center">
+      <b>Review the form</b>
+    </p>
+    <img
+      src="{%  static '/img/surveyreview2.jpg' %}"
+      alt=""
+      style="
+        height: 300px;
+        width: 300px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        box-shadow: 0px 1px 6px 0.5px gray;
+      "
+    />
+    <p style="margin-top: 10px; text-align: center">
+      <b>Customer Response</b>
+    </p>
+    <img
+      src="{%  static '/img/survey.jpg' %}"
+      alt=""
+      style="
+        height: 300px;
+        width: 300px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        box-shadow: 0px 1px 6px 0.5px gray;
+      "
+    />
+    <img
+      src="{%  static '/img/gmail.jpg' %}"
+      alt=""
+      style="
+        height: 400px;
+        width: 300px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        box-shadow: 0px 1px 6px 0.5px gray;
+        margin-top: 20px;
+      "
+    />
+    <img
+      src="{%  static '/img/survey2.jpg' %}"
+      alt=""
+      style="
+        height: 400px;
+        width: 300px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        box-shadow: 0px 1px 6px 0.5px gray;
+        margin-top: 20px;
+      "
+    />
+  </div>
+
+  {% endblock body %}
+</ul>

@@ -1,0 +1,46 @@
+{% extends "base.html" %} {% block nav %}
+ <a class="navbar-brand" href="/index">Feedbackly</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+<li class="nav-item">
+  <a class="nav-link" href="/logout">Logout</a>
+</li>
+{% endblock nav %} {% block survey %}
+<ul class="nav justify-content-end">
+  <li
+    class="nav-item my-1"
+    style="
+      border: 1px solid gray;
+      padding: 4px;
+      background-color: gray;
+      border-radius: 5px;
+    "
+  >
+    Credit : {{credit}}
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="addcredit">Add Credit</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/createsurvey">Create Survey</a>
+  </li>
+</ul>
+{% endblock survey %} {% block body %} {% load mathfilters %}
+<h4>Welcome {{userName}}</h4>
+{% for i in getSurvey %}
+<div class="card bg-primary my-4" style="position: relative">
+  <div class="card-body">
+    <h5 class="card-title">{{ i.title }}</h5>
+    <p class="card-text">{{i.subject}}</p>
+    <hr />
+    <a
+      >Yes : <span style="color: green"><b>{{i.yes}}</b></span></a
+    >
+    <a
+      >No : <span style="color: red"><b>{{i.no}}</b></span></a
+    >
+    <p style="position: absolute; bottom: 3px; right: 10px">
+      sent on : 5-Oct-2020
+    </p>
+  </div>
+</div>
+{% endfor %} {% endblock body %}

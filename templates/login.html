@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block nav %}
+ <a class="navbar-brand" href="/home">Feedbackly</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+<li class="nav-item active">
+  <a class="nav-link" href="/register"
+    >Register <span class="sr-only">(current)</span></a
+  >
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="/login">Login</a>
+</li>
+{% endblock nav %} {% block body %}
+<div class="container d-flex justify-content-center">
+  <div class="col-md-4 d-flex flex-column justify-content-center">
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-control"
+          placeholder="Enter Email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          class="form-control"
+          placeholder="Enter Password"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Login</button>
+    </form>
+    <p class="lead mt-4">No Account? <a href="/register">Register</a></p>
+  </div>
+</div>
+
+{% endblock body %}
