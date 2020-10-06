@@ -12,7 +12,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 from .models import UserCredits, survey
 import stripe
-stripe.api_key = "sk_test_51HSGx4HsHAyz3jSs2o0SWfEbJra9ARDSX2gMokooTSMvMzIGP8qxtGz7N8thGD45e5Wyntcm7zbuZaiJnWi0OtGh00jDmNeLRJ"
+stripe.api_key = "YOUR API"
 # Create your views here.
 
 

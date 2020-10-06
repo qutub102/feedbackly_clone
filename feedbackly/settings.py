@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '4=l!7$h$8@#*bi*c#ot@l^+b1#p7n!$5rn25vfldc$rkq$h47j'
+SECRET_KEY = 'YOUR SECRET KEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -122,5 +122,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 EMAIL_BACKEND = "sgbackend.SendGridBackend"
-SENDGRID_API_KEY = "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"
+SENDGRID_API_KEY = "YOUR SENDGRID API"
 SENDGRID_SANDBOX_MODE_IN_DEBUG = False
