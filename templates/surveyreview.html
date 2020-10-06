@@ -1,0 +1,63 @@
+{% extends "base.html" %} {% block nav %}
+<li class="nav-item">
+  <a class="nav-link" href="/logout">Logout</a>
+</li>
+{% endblock nav %} {% block survey %}
+<ul class="nav justify-content-end">
+  <li
+    class="nav-item my-1"
+    style="
+      border: 1px solid gray;
+      padding: 4px;
+      background-color: gray;
+      border-radius: 5px;
+    "
+  >
+    Credit : {{credit}}
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="addcredit">Add Credit</a>
+  </li>
+</ul>
+{% endblock survey %} {% block body%}
+<h2>Survey Title</h2>
+{{title}}
+<h2>Survey Subject</h2>
+{{subject}}
+<h2>Survey Body</h2>
+{{body}}
+<h2>Recipients List</h2>
+{{recipient}}
+<form action="/surveyreview" method="post">
+  {% csrf_token %}
+  <input
+    type="text"
+    id="title"
+    name="title"
+    value="{{title}}"
+    style="display: none"
+  />
+  <input
+    type="text"
+    id="subject"
+    name="subject"
+    value="{{subject}}"
+    style="display: none"
+  />
+  <input
+    type="text"
+    id="body"
+    name="body"
+    value="{{body}}"
+    style="display: none"
+  />
+  <input
+    type="text"
+    id="recipient"
+    name="recipient"
+    value="{{recipient}}"
+    style="display: none"
+  />
+  <button type="submit" class="btn btn-primary my-4">Submit</button>
+</form>
+{% endblock body%}
