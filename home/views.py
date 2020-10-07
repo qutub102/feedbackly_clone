@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import EmailMultiAlternatives, EmailMessage
 from bson.objectid import ObjectId
+from django.conf.urls import url
 import stripe
 import os
 stripe.api_key = os.environ.get('STRIPE_API')
