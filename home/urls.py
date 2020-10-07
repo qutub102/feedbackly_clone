@@ -14,5 +14,4 @@ urlpatterns = [
     url('createsurvey', views.createsurvey, name='createsurvey'),
     url('surveyreview', views.surveyreview, name='surveyreview'),
     path('survey/<str:choice>/<str:surlen>', views.thanks, name='thanks'),
-    url('thanks', views.thank, name='thank')
 ]
