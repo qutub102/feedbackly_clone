@@ -11,7 +11,6 @@ from django.conf.urls import url
 import stripe
 import os
 stripe.api_key = os.environ.get('STRIPE_API')
-# Create your views here.
 client = MongoClient(os.environ.get('MONGO_URL'))
 
 db = client.dev_feedbackly
