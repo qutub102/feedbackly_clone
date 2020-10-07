@@ -45,6 +45,10 @@ def register(request):
             if name == '' or email == '' or password == '':
                 messages.success(request, 'Please Enter Something')
                 return redirect('register.html')
+            if len(password) <= 6:
+                messages.success(
+                    request, 'Password must be of 6 character long')
+                return redirect('register.html')
             if password != password2:
                 messages.success(request, 'Password did not match!!')
                 return redirect('register.html')
@@ -144,12 +148,15 @@ def surveyreview(request):
         subject = request.POST.get('subject')
         body = request.POST.get('body')
         recipient = request.POST.get('recipient')
-
+        if title == '' or subject == '' or body == '' or recipient == '':
+            messages.success(request, 'All Form Fields are mandatory')
+            return redirect("createsurvey.html")
         credits = db.UserCredits.find_one({'username': request.user.username})
         if credits['credit'] == 0:
             messages.success(
                 request, "Now Don't Have enougfh credit to make survey!!")
             return render(request, "surveyreview.html", {'credit': credits['credit'], 'title': title, 'subject': subject, 'body': body, 'recipient': recipient})
+
         survey_id = db.survey.insert_one({'title': title, 'subject': subject,
                                           'body': body, 'recipient': recipient, 'yes': 0, 'no': 0, '_user': request.user.username}).inserted_id
 
@@ -171,20 +178,20 @@ def surveyreview(request):
         getsurvey = db.survey.find(
             {'_user': request.user.username}).sort('_id', -1)
         messages.success(request, "Survey has been send.")
-        # redirect('index')
         return redirect("index.html", {'userName': request.user.first_name, 'credit': credits['credit'], 'getSurvey': getsurvey})
     return render(request, "surveyreview.html")
 
 
 def thanks(request, choice, surlen):
-    if choice == 'yes':
-        db.survey.update_one({'_id': ObjectId(surlen)}, {'$inc': {'yes': 1}})
-        return redirect('thank.html')
-    else:
-        db.survey.update_one({'_id': ObjectId(surlen)}, {'$inc': {'no': 1}})
-        return redirect("thank.html")
-    # return render(request, "thanks.html")
-
-
-def thank(request):
-    return render(request, "thanks.html")
+    i = 0
+    while(i < 1):
+        if choice == 'yes':
+            db.survey.update_one({'_id': ObjectId(surlen)}, {
+                                 '$inc': {'yes': 1}})
+            i = i+1
+            return render(request, 'thanks.html')
+        else:
+            db.survey.update_one({'_id': ObjectId(surlen)}, {
+                                 '$inc': {'no': 1}})
+            i = i+1
+            return render(request, "thanks.html")
